@@ -1,0 +1,13 @@
+{
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  },
+  "data" : [
+    {
+      "idiom" : "universal",
+      "filename" : "iPhone App Icon iOS 7,9@3x.png",
+      "universal-type-identifier" : "public.png"
+    }
+  ]
+}
