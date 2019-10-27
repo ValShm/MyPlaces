@@ -10,13 +10,16 @@ import UIKit
 
 class MainTableViewController: UITableViewController {
     
-    
+    /*
     let restaurantNames = [
         "Burger Heroes", "Kitchen", "Bonsai", "Дастархан",
          "X.O", "Балкан Гриль", "Sherlock Holmes",
         "Speak Easy", "Morris Pub", "Вкусные истории",
         "Классик", "Love&Life", "Шок", "Бочка"
     ]
+    */
+    
+    let plases = Place.getPlaces()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,15 +37,17 @@ class MainTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return restaurantNames.count
+        return plases.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
 
-        cell.nameLabel.text = restaurantNames[indexPath.row]
-        cell.imageOfPlace.image = UIImage(named: restaurantNames[indexPath.row])
+        cell.nameLabel.text = plases[indexPath.row].name
+        cell.locationLabel.text = plases[indexPath.row].location
+        cell.typeLabel.text = plases[indexPath.row].type
+        cell.imageOfPlace.image = UIImage(named: plases[indexPath.row].image)
         cell.imageOfPlace.layer.cornerRadius = cell.imageOfPlace.frame.size.height / 2
         cell.imageOfPlace.clipsToBounds = true
 
@@ -50,12 +55,16 @@ class MainTableViewController: UITableViewController {
         
     }
     
-    // MARK: - Table view deledate
+    @IBAction func cancelAction (_ segue: UIStoryboardSegue) {
+        
+    }
+    
+   /* // MARK: - Table view deledate
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 85
     }
-    
+    */
 
     /*
     // Override to support conditional editing of the table view.
